@@ -22,6 +22,7 @@ public class calculadora extends javax.swing.JFrame {
     }
     
     String numero1,numero2,sinal;
+    double num1,num2,resultado;
     int cont=1;
     
     /**
@@ -34,7 +35,7 @@ public class calculadora extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBox1 = new javax.swing.JCheckBox();
-        jTextField1 = new javax.swing.JTextField();
+        visor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -57,6 +58,12 @@ public class calculadora extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculator");
 
+        visor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visorActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("7");
         jButton1.setMargin(new java.awt.Insets(20, 20, 20, 20));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,18 +74,43 @@ public class calculadora extends javax.swing.JFrame {
 
         jButton2.setText("8");
         jButton2.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("9");
         jButton3.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("/");
         jButton4.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("4");
         jButton5.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("5");
         jButton6.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("6");
         jButton7.setMargin(new java.awt.Insets(20, 20, 20, 20));
@@ -114,9 +146,19 @@ public class calculadora extends javax.swing.JFrame {
 
         jButton11.setText("2");
         jButton11.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("3");
         jButton12.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("+");
         jButton13.setMargin(new java.awt.Insets(20, 20, 20, 20));
@@ -128,6 +170,11 @@ public class calculadora extends javax.swing.JFrame {
 
         jButton14.setText("=");
         jButton14.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText(".");
         jButton15.setMargin(new java.awt.Insets(20, 20, 20, 20));
@@ -139,6 +186,11 @@ public class calculadora extends javax.swing.JFrame {
 
         jButton16.setText("0");
         jButton16.setMargin(new java.awt.Insets(20, 20, 20, 20));
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,14 +232,14 @@ public class calculadora extends javax.swing.JFrame {
                 .addGap(0, 26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1)
+                .addComponent(visor)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(visor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -222,33 +274,174 @@ public class calculadora extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        visor.setText(visor.getText()+"6");
+        if(cont==1){
+            numero1+="6";
+        }else{
+         numero2+="6";   
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        visor.setText(visor.getText()+"+");
+        sinal="somar";
+        cont++;
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        visor.setText(visor.getText()+"*");
+        sinal="multiplicar";
+        cont++;
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        visor.setText(visor.getText()+"-");
+        sinal="subtrair";
+        cont++;
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        visor.setText(visor.getText()+"1");
+        if(cont==1){
+            numero1+="1";
+        }else{
+         numero2+="1";   
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
+        visor.setText(visor.getText()+".");
+        if(cont==1){
+         numero1+=".";
+        }else{
+         numero2+=".";   
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
+        visor.setText(visor.getText()+"7");
+        if(cont==1){
+         numero1+="7";
+        }else{
+         numero2+="7";   
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"8");
+        if(cont==1){
+         numero1+="8";
+        }else{
+         numero2+="8";   
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"9");
+        if(cont==1){
+         numero1+="9";
+        }else{
+         numero2+="9";   
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"/");
+        sinal="dividir";
+        cont++;
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"4");
+         if(cont==1){
+         numero1+="4";
+        }else{
+         numero2+="4";   
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"5");
+        if(cont==1){
+         numero1+="5";
+        }else{
+         numero2+="5";   
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"2");
+        if(cont==1){
+            numero1+="2";
+        }else{
+         numero2+="2";   
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"3");
+        if(cont==1){
+         numero1+="3";
+        }else{
+         numero2+="3";   
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        visor.setText(visor.getText()+"0");
+        if(cont==1){
+         numero1+="0";
+        }else{
+         numero2+="0";   
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        if(sinal.equals("somar")){
+            num1=Double.parseDouble(numero1);
+            num2=Double.parseDouble(numero2);
+            resultado=num1+num2;
+            visor.setText(String.valueOf(resultado));
+        }
+        if (sinal.equals("subtrair")){
+            num1=Double.parseDouble(numero1);
+            num2=Double.parseDouble(numero2);
+            resultado=num1-num2;
+            visor.setText(String.valueOf(resultado));
+        }
+        if (sinal.equals("multiplicar")){
+            num1=Double.parseDouble(numero1);
+            num2=Double.parseDouble(numero2);
+            resultado=num1*num2;
+            visor.setText(String.valueOf(resultado));
+        }
+        if (sinal.equals("dividir")){
+            num1=Double.parseDouble(numero1);
+            num2=Double.parseDouble(numero2);
+            resultado=num1/num2;
+            visor.setText(String.valueOf(resultado));
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void visorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visorActionPerformed
+        // TODO add your handling code here:
+  
+    }//GEN-LAST:event_visorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,6 +496,6 @@ public class calculadora extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField visor;
     // End of variables declaration//GEN-END:variables
 }
