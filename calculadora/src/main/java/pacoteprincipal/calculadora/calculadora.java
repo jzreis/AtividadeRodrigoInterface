@@ -21,9 +21,8 @@ public class calculadora extends javax.swing.JFrame {
         initComponents();
     }
     
-    String numero1,numero2,sinal;
     double num1,num2,resultado;
-    int cont=1;
+    String sinal;
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -275,164 +274,106 @@ public class calculadora extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"6");
-        if(cont==1){
-            numero1+="6";
-        }else{
-         numero2+="6";   
-        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        visor.setText(visor.getText()+"+");
+        num1=Double.parseDouble(visor.getText());
+        visor.setText("");
         sinal="somar";
-        cont++;
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        visor.setText(visor.getText()+"*");
+        num1=Double.parseDouble(visor.getText());
+        visor.setText("");
         sinal="multiplicar";
-        cont++;
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        visor.setText(visor.getText()+"-");
+        num1=Double.parseDouble(visor.getText());
+        visor.setText("");
         sinal="subtrair";
-        cont++;
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"1");
-        if(cont==1){
-            numero1+="1";
-        }else{
-         numero2+="1";   
-        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+".");
-        if(cont==1){
-         numero1+=".";
-        }else{
-         numero2+=".";   
-        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"7");
-        if(cont==1){
-         numero1+="7";
-        }else{
-         numero2+="7";   
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"8");
-        if(cont==1){
-         numero1+="8";
-        }else{
-         numero2+="8";   
-        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"9");
-        if(cont==1){
-         numero1+="9";
-        }else{
-         numero2+="9";   
-        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        visor.setText(visor.getText()+"/");
+        num1=Double.parseDouble(visor.getText());
+        visor.setText("");
         sinal="dividir";
-        cont++;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"4");
-         if(cont==1){
-         numero1+="4";
-        }else{
-         numero2+="4";   
-        }
+        num1=Double.parseDouble(visor.getText());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"5");
-        if(cont==1){
-         numero1+="5";
-        }else{
-         numero2+="5";   
-        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"2");
-        if(cont==1){
-            numero1+="2";
-        }else{
-         numero2+="2";   
-        }
+
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"3");
-        if(cont==1){
-         numero1+="3";
-        }else{
-         numero2+="3";   
-        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText()+"0");
-        if(cont==1){
-         numero1+="0";
-        }else{
-         numero2+="0";   
-        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
+         num2=Double.parseDouble(visor.getText());
+         
+         
         if(sinal.equals("somar")){
-            num1=Double.parseDouble(numero1);
-            num2=Double.parseDouble(numero2);
             resultado=num1+num2;
             visor.setText(String.valueOf(resultado));
         }
         if (sinal.equals("subtrair")){
-            num1=Double.parseDouble(numero1);
-            num2=Double.parseDouble(numero2);
             resultado=num1-num2;
             visor.setText(String.valueOf(resultado));
         }
         if (sinal.equals("multiplicar")){
-            num1=Double.parseDouble(numero1);
-            num2=Double.parseDouble(numero2);
             resultado=num1*num2;
             visor.setText(String.valueOf(resultado));
         }
         if (sinal.equals("dividir")){
-            num1=Double.parseDouble(numero1);
-            num2=Double.parseDouble(numero2);
             resultado=num1/num2;
             visor.setText(String.valueOf(resultado));
         }
