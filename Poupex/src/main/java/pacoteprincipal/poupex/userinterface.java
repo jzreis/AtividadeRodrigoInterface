@@ -145,7 +145,7 @@ public class userinterface extends javax.swing.JFrame {
     private void botaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOKActionPerformed
         // TODO add your handling code here:
         resultado = taxa * (anos/12) * deposito; 
-        JOptionPane.showMessageDialog(null, "Capital acumulado "+resultado+" R$.", "Alerta", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Capital acumulado "+resultado+"R$.", "Alerta", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_botaoOKActionPerformed
 
     /**
