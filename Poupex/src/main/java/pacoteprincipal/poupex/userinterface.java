@@ -1,5 +1,7 @@
 package pacoteprincipal.poupex;
 
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -17,7 +19,7 @@ public class userinterface extends javax.swing.JFrame {
     public userinterface() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,22 +30,22 @@ public class userinterface extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        campojuros = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        botaoOK = new javax.swing.JButton();
+        campoanos = new javax.swing.JTextField();
+        campodeposito = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Poupex");
 
-        jLabel1.setText("Juros ao mes R$:");
+        jLabel1.setText("Juros % ao mes R$:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        campojuros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                campojurosActionPerformed(evt);
             }
         });
 
@@ -53,7 +55,24 @@ public class userinterface extends javax.swing.JFrame {
 
         jLabel4.setText("Total poupado R$:");
 
-        jButton1.setText("OK");
+        botaoOK.setText("OK");
+        botaoOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoOKActionPerformed(evt);
+            }
+        });
+
+        campoanos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoanosActionPerformed(evt);
+            }
+        });
+
+        campodeposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campodepositoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,7 +85,7 @@ public class userinterface extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(botaoOK))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -74,9 +93,9 @@ public class userinterface extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))))
+                            .addComponent(campojuros)
+                            .addComponent(campoanos)
+                            .addComponent(campodeposito, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,28 +104,49 @@ public class userinterface extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campojuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campodeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jButton1))
+                    .addComponent(botaoOK))
                 .addGap(74, 74, 74))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    double taxa,deposito,resultado;
+    int anos;
+    
+    private void campojurosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campojurosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        
+        taxa=Double.parseDouble(campojuros.getText());
+    }//GEN-LAST:event_campojurosActionPerformed
+
+    private void campoanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoanosActionPerformed
+        // TODO add your handling code here:
+        anos=Integer.parseInt(campoanos.getText());
+    }//GEN-LAST:event_campoanosActionPerformed
+
+    private void campodepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campodepositoActionPerformed
+        // TODO add your handling code here:
+        deposito=Double.parseDouble(campodeposito.getText());
+    }//GEN-LAST:event_campodepositoActionPerformed
+
+    private void botaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOKActionPerformed
+        // TODO add your handling code here:
+        resultado = taxa * (anos/12) * deposito; 
+        JOptionPane.showMessageDialog(null, "Capital acumulado "+resultado+" R$.", "Alerta", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_botaoOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,13 +184,13 @@ public class userinterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botaoOK;
+    private javax.swing.JTextField campoanos;
+    private javax.swing.JTextField campodeposito;
+    private javax.swing.JTextField campojuros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
